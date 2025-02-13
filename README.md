@@ -41,12 +41,6 @@ Example:
 java HtmlAnalyzer http://hiring.axreng.com/internship/example1.html
 ```
 
-## Compilation and Usage
-
-```sh
-javac c:\Users\luisf\OneDrive\Desktop\GitHub\challenge-html-analyzer\HtmlAnalyzer.java; java HtmlAnalyzer http://localhost:8000/test.html
-```
-
 ## Expected Output
 
 - If the HTML is valid and has a deepest text fragment, it will return the fragment.
@@ -58,9 +52,3 @@ javac c:\Users\luisf\OneDrive\Desktop\GitHub\challenge-html-analyzer\HtmlAnalyze
   ```
   URL connection error
   ```
-
-## Submission
-
-```sh
-tar -cvf luis_emidio.tar *.java README.md
-```
