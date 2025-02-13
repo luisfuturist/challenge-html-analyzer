@@ -3,9 +3,12 @@ import java.net.*;
 import java.util.*;
 
 /**
- * A simple HTML analyzer that finds the deepest nested text within the HTML content of a given URL.
- * The program fetches the HTML content from the URL, then analyzes the content to find the deepest
- * nested text within the HTML structure. The program uses a stack to keep track of the nested tags
+ * A simple HTML analyzer that finds the deepest nested text within the HTML
+ * content of a given URL.
+ * The program fetches the HTML content from the URL, then analyzes the content
+ * to find the deepest
+ * nested text within the HTML structure. The program uses a stack to keep track
+ * of the nested tags
  * and finds the text content with the maximum depth in the HTML structure.
  */
 public class HtmlAnalyzer {
@@ -81,25 +84,25 @@ public class HtmlAnalyzer {
         Stack<String> stack = new Stack<>();
         String deepestText = "";
         int maxDepth = 0;
-    
+
         // Split the input HTML by lines
         String[] lines = html.split("\n");
-    
+
         for (String line : lines) {
             // Trim leading and trailing whitespaces
             String trimmedLine = line.trim();
-    
+
             if (trimmedLine.isEmpty()) {
                 continue; // Skip empty lines
             }
-    
+
             // Check if it's a tag (either opening or closing)
             if (trimmedLine.startsWith("</")) {
                 // Closing tag
                 if (stack.isEmpty()) {
                     throw new MalformedHTMLException("Unbalanced tags");
                 }
-                
+
                 // Pop the stack for the closing tag
                 stack.pop();
             } else if (trimmedLine.startsWith("<")) {
@@ -116,17 +119,17 @@ public class HtmlAnalyzer {
                 }
             }
         }
-    
+
         // Check if there are any unclosed tags
         if (!stack.isEmpty()) {
             throw new MalformedHTMLException("Unclosed tags");
         }
-    
+
         // If no text was found, throw an exception
         if (deepestText.isEmpty()) {
             throw new MalformedHTMLException("No text content found");
         }
-    
+
         return deepestText;
     }
 }
