@@ -2,8 +2,19 @@ import java.io.*;
 import java.net.*;
 import java.util.*;
 
+/**
+ * A simple HTML analyzer that finds the deepest nested text within the HTML content of a given URL.
+ * The program fetches the HTML content from the URL, then analyzes the content to find the deepest
+ * nested text within the HTML structure. The program uses a stack to keep track of the nested tags
+ * and finds the text content with the maximum depth in the HTML structure.
+ */
 public class HtmlAnalyzer {
 
+    /**
+     * Main method to analyze the HTML content of a given URL.
+     *
+     * @param args the command-line arguments
+     */
     public static void main(String[] args) {
         if (args.length != 1) {
             System.out.println("Usage: java HtmlAnalyzer <URL>");
@@ -28,12 +39,22 @@ public class HtmlAnalyzer {
         }
     }
 
+    /**
+     * Custom exception class for malformed HTML content.
+     */
     public static class MalformedHTMLException extends Exception {
         public MalformedHTMLException(String message) {
             super(message);
         }
     }
 
+    /**
+     * Fetches the HTML content from the given URL.
+     *
+     * @param urlString the URL to fetch the HTML content from
+     * @return the HTML content as a string
+     * @throws IOException if an I/O error occurs
+     */
     private static String fetchHtmlContent(String urlString) throws IOException {
         URL url = new URL(urlString);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
