@@ -56,7 +56,8 @@ public class HtmlAnalyzer {
      * Parses the HTML content and returns the deepest text fragment.
      *
      * @param html the HTML content to parse
-     * @return the deepest text fragment found in the HTML content, or "malformed HTML" if the HTML is not well-formed
+     * @return the deepest text fragment found in the HTML content
+     * @throws MalformedHTMLException if the HTML is not well-formed
      */
     private static String findDeepestText(String html) throws MalformedHTMLException {
         Stack<String> stack = new Stack<>();
