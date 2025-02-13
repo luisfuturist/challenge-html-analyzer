@@ -52,3 +52,5 @@ java HtmlAnalyzer http://hiring.axreng.com/internship/example1.html
   ```
   URL connection error
   ```
+- If multiple text fragments are at the maximum depth, the first one encountered is returned.
+- Leading spaces and blank lines in the HTML input are ignored.
